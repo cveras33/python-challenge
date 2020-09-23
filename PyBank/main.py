@@ -9,15 +9,11 @@ import csv
 print("\nFinancial Analysis")
 print("--------------------------------------------------")
 
-# Commenting out relative path for now.. 
-# NEED TO SWITCH TO THIS BEFORE SUBMITTING
-# csvPath = os.path.join('..', 'Resources', 'budget_data.csv')
-
-# Absolute path.. used JUST for testing purposes
-csvPath = r"/Users/chloe/Documents/HW_ASSIGNMENTS/python-challenge/PyBank/Resources/budget_data.csv"
+# Relative path for input file
+csvPath = os.path.join('..', 'Resources', 'budget_data.csv')
 
 # Relative path for output file 
-output_path = os.path.join("analysis", "py_bank_output.txt")
+output_path = os.path.join('..', 'analysis', 'py_bank_output.txt')
 
 # List for all the dates in the dataset
 months = []
