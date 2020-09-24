@@ -2,7 +2,7 @@ import os
 import csv
 
 # Printing header 
-print("Election Results")
+print("\nElection Results")
 print("--------------------------------------------------")
 
 # Relative path for input file
@@ -40,12 +40,34 @@ for candidate in candidates_list:
     else:
         candidates[candidate] = 1
 
+# Calculating the percentage of votes for each candidate
+khan_percentage = candidates["Khan"] / total_votes
+khan_percentage = "{:.3%}".format(khan_percentage)
+
+correy_percentage = candidates["Correy"] / total_votes
+correy_percentage = "{:.3%}".format(correy_percentage)
+
+li_percentage = candidates["Li"] / total_votes
+li_percentage = "{:.3%}".format(li_percentage)
+
+# FIND THE WINNER BY... finding max value in dict then 
+# returning the key
+
+#otooley_percentage = candidates["O'Tooley"] / total_votes
+#otooley_percentage = "{:.3%}".format(otooley_percentage)
+
 # Printing outputs
 print(f"Total Votes: {total_votes}")
 print("--------------------------------------------------")
 
-print(candidates.keys())
+print(f'Khan: {khan_percentage} ({candidates["Khan"]})')
+print(f'Correy: {correy_percentage} ({candidates["Correy"]})')
+print(f'Li: {li_percentage} ({candidates["Li"]})')
 
-#printing 
-#for key, value in candidates.items():
-#    print("%s : %d"%(key, value))
+#print(f"O\'Tooley: {otooley_percentage} ({candidates['O\'Tooley']})")
+
+print("--------------------------------------------------")
+print(f'Winner: ')
+print("--------------------------------------------------\n")
+
+
