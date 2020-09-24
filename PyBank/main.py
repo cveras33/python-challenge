@@ -5,7 +5,7 @@ import os
 # Import module for reading csv files 
 import csv
 
-# Printing header (may want to move this later)
+# Printing header
 print("\nFinancial Analysis")
 print("--------------------------------------------------")
 
