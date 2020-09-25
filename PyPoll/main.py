@@ -10,6 +10,9 @@ print("--------------------------------------------------")
 
 csvPath = r'/Users/chloe/Documents/HW_ASSIGNMENTS/python-challenge/PyPoll/Resources/election_data.csv'
 
+# Relative path for output file 
+output_path = os.path.join('analysis', 'py_poll_output.txt')
+
 # Variable for total votes cast 
 total_votes = 0 
 
@@ -52,6 +55,7 @@ li_percentage = "{:.3%}".format(li_percentage)
 
 # FIND THE WINNER BY... finding max value in dict then 
 # returning the key
+winner = max(candidates, key = candidates.get)
 
 #otooley_percentage = candidates["O'Tooley"] / total_votes
 #otooley_percentage = "{:.3%}".format(otooley_percentage)
@@ -67,7 +71,21 @@ print(f'Li: {li_percentage} ({candidates["Li"]})')
 #print(f"O\'Tooley: {otooley_percentage} ({candidates['O\'Tooley']})")
 
 print("--------------------------------------------------")
-print(f'Winner: ')
+print(f'Winner: {winner}')
 print("--------------------------------------------------\n")
 
 
+# Writing to the text file 
+with open(output_path, 'w') as txt_file:
+
+    txt_file.write("Election Results\n")
+    txt_file.write("---------------------------------------\n")
+    txt_file.write(f"Total Votes: {total_votes}\n")
+    txt_file.write("---------------------------------------\n")
+    txt_file.write(f'Khan: {khan_percentage} ({candidates["Khan"]})\n')
+    txt_file.write(f'Correy: {correy_percentage} ({candidates["Correy"]})\n')
+    txt_file.write(f'Li: {li_percentage} ({candidates["Li"]})\n')
+    #txt_file.write(f"O\'Tooley: {otooley_percentage} ({candidates['O\'Tooley']})\n")
+    txt_file.write("---------------------------------------\n")
+    txt_file.write(f'Winner: \n')
+    txt_file.write("---------------------------------------\n")
