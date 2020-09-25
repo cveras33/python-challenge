@@ -106,4 +106,5 @@ with open(csvPath) as csvFileStream:
 
 with open(output_path, 'w') as csv_file:
     csv_writer = csv.writer(csv_file)
+    csv_writer.writerow(["First Name", "Last Name", "DOB", "SSN", "State"])
     csv_writer.writerows(zip(first_name, last_name, date_formatted, hidden_ssn, state))
