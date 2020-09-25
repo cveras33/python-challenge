@@ -1,22 +1,22 @@
 import os
 import csv
 
-# Printing header 
 print("\nElection Results")
 print("--------------------------------------------------")
 
 # Relative path for input file
-# csvPath = os.path.join('..', 'Resources', 'election_data.csv')
+#csvPath = os.path.join('..', 'Resources', 'election_data.csv')
 
 csvPath = r'/Users/chloe/Documents/HW_ASSIGNMENTS/python-challenge/PyPoll/Resources/election_data.csv'
 
 # Relative path for output file 
+#output_path = os.path.join('..', 'analysis', 'py_poll_output.txt')
 output_path = os.path.join('analysis', 'py_poll_output.txt')
 
-# Variable for total votes cast 
+# Variable for total votes 
 total_votes = 0 
 
-# List to hold vote cast for each candidate 
+# List to hold votes cast for each candidate 
 candidates_list = []
 
 # Dictonary to hold each candidate and the number of votes they received
@@ -29,7 +29,10 @@ with open(csvPath) as csvFileStream:
     # Read the header row first
     csv_header = next(csv_reader)
 
+    # For each row after the header... 
     for row in csv_reader: 
+        
+        # Add candidate's name to list each time a vote is cast in their name
         candidates_list.append(row[2])
 
 # Getting the total amount of votes cast        
@@ -53,12 +56,12 @@ correy_percentage = "{:.3%}".format(correy_percentage)
 li_percentage = candidates["Li"] / total_votes
 li_percentage = "{:.3%}".format(li_percentage)
 
-# FIND THE WINNER BY... finding max value in dict then 
-# returning the key
-winner = max(candidates, key = candidates.get)
-
 #otooley_percentage = candidates["O'Tooley"] / total_votes
 #otooley_percentage = "{:.3%}".format(otooley_percentage)
+
+# Getting candidate with the most votes from dictionary, 
+# Setting that candidate as the winner
+winner = max(candidates, key = candidates.get)
 
 # Printing outputs
 print(f"Total Votes: {total_votes}")
@@ -67,7 +70,6 @@ print("--------------------------------------------------")
 print(f'Khan: {khan_percentage} ({candidates["Khan"]})')
 print(f'Correy: {correy_percentage} ({candidates["Correy"]})')
 print(f'Li: {li_percentage} ({candidates["Li"]})')
-
 #print(f"O\'Tooley: {otooley_percentage} ({candidates['O\'Tooley']})")
 
 print("--------------------------------------------------")
@@ -87,5 +89,5 @@ with open(output_path, 'w') as txt_file:
     txt_file.write(f'Li: {li_percentage} ({candidates["Li"]})\n')
     #txt_file.write(f"O\'Tooley: {otooley_percentage} ({candidates['O\'Tooley']})\n")
     txt_file.write("---------------------------------------\n")
-    txt_file.write(f'Winner: \n')
+    txt_file.write(f'Winner: {winner}\n')
     txt_file.write("---------------------------------------\n")

@@ -1,19 +1,16 @@
-# PyBank Homework Script 
-
-# Import os module 
 import os 
-# Import module for reading csv files 
 import csv
 
-# Printing header
 print("\nFinancial Analysis")
 print("--------------------------------------------------")
 
 # Relative path for input file
 csvPath = os.path.join('..', 'Resources', 'budget_data.csv')
+#csvPath = r'/Users/chloe/Documents/HW_ASSIGNMENTS/python-challenge/PyBank/Resources/budget_data.csv'
 
 # Relative path for output file 
 output_path = os.path.join('..', 'analysis', 'py_bank_output.txt')
+#output_path = os.path.join('analysis', 'py_bank_output.txt')
 
 # List for all the dates in the dataset
 months = []
@@ -21,14 +18,8 @@ months = []
 # Varible for the number of months in the dataset 
 num_months = 0 
 
-# Variable for net total amount of "profit/losses"
+# Variable for net total amount of profit/losses
 net_total = 0 
-
-# Variable for change 
-change = 0 
-
-# Variable for avg change 
-avg_change = 0 
 
 # List to hold profits and losses 
 profit_loss = []
@@ -55,13 +46,13 @@ with open(csvPath) as csvFileStream:
     # For each row after the header...
     for row in csv_reader:
         
-        # Adding each date to the months list
+        # Add each date to the months list
         months.append(row[0])
 
         # Calculate net total of profits/losses over the entire period
         net_total += int(row[1])
 
-        # Adding each profit/loss to the profit_loss list 
+        # Add each profit/loss to the profit_loss list 
         profit_loss.append(int(row[1]))
 
 # Getting the total number of months in the dataset 
@@ -93,7 +84,7 @@ print(f"Total Months: {num_months}")
 print(f"Total: ${net_total}")
 print(f"Average  Change: (${avg_change})")
 print(f"Greatest Increase in Profits: {months[greatest_increase_month]} (${greatest_increase})")
-print(f"Greatest Decrease in Profits: {months[greatest_decrease_month]} (${greatest_decrease})")
+print(f"Greatest Decrease in Profits: {months[greatest_decrease_month]} (${greatest_decrease})\n")
 
 # Writing to the text file 
 with open(output_path, 'w') as txt_file:
