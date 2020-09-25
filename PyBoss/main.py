@@ -57,12 +57,10 @@ us_state_abbrev = {
 }
 
 # Relative path for input file
-#csvPath = os.path.join('..', 'Resources', 'employee_data.csv')
-csvPath = r'/Users/chloe/Documents/HW_ASSIGNMENTS/python-challenge/PyBoss/Resources/employee_data.csv'
+csvPath = os.path.join('..', 'Resources', 'employee_data.csv')
 
 # Relative path for output file
-#output_path = os.path.join('..', 'analysis', 'py_poll_output.txt')
-output_path = os.path.join('analysis', 'reformatted_employee_data.csv')
+output_path = os.path.join('..', 'analysis', 'py_poll_output.txt')
 
 # List to hold all first names from the dataset after splitting
 first_name = []
@@ -106,5 +104,7 @@ with open(csvPath) as csvFileStream:
 
 with open(output_path, 'w') as csv_file:
     csv_writer = csv.writer(csv_file)
+    # Writing the headers to the csv file 
     csv_writer.writerow(["First Name", "Last Name", "DOB", "SSN", "State"])
+    # Writing the new data to the csv file 
     csv_writer.writerows(zip(first_name, last_name, date_formatted, hidden_ssn, state))
