@@ -56,8 +56,8 @@ correy_percentage = "{:.3%}".format(correy_percentage)
 li_percentage = candidates["Li"] / total_votes
 li_percentage = "{:.3%}".format(li_percentage)
 
-#otooley_percentage = candidates["O'Tooley"] / total_votes
-#otooley_percentage = "{:.3%}".format(otooley_percentage)
+otooley_percentage = candidates["O'Tooley"] / total_votes
+otooley_percentage = "{:.3%}".format(otooley_percentage)
 
 # Getting candidate with the most votes from dictionary, 
 # Setting that candidate as the winner
@@ -70,8 +70,7 @@ print("--------------------------------------------------")
 print(f'Khan: {khan_percentage} ({candidates["Khan"]})')
 print(f'Correy: {correy_percentage} ({candidates["Correy"]})')
 print(f'Li: {li_percentage} ({candidates["Li"]})')
-#print(f"O\'Tooley: {otooley_percentage} ({candidates['O\'Tooley']})")
-
+print("O'Tooley: " + str(otooley_percentage) + " (" + str(candidates['O\'Tooley']) + ")")
 print("--------------------------------------------------")
 print(f'Winner: {winner}')
 print("--------------------------------------------------\n")
@@ -87,7 +86,7 @@ with open(output_path, 'w') as txt_file:
     txt_file.write(f'Khan: {khan_percentage} ({candidates["Khan"]})\n')
     txt_file.write(f'Correy: {correy_percentage} ({candidates["Correy"]})\n')
     txt_file.write(f'Li: {li_percentage} ({candidates["Li"]})\n')
-    #txt_file.write(f"O\'Tooley: {otooley_percentage} ({candidates['O\'Tooley']})\n")
+    txt_file.write("O'Tooley: " + str(otooley_percentage) + " (" + str(candidates['O\'Tooley']) + ")\n")
     txt_file.write("---------------------------------------\n")
     txt_file.write(f'Winner: {winner}\n')
     txt_file.write("---------------------------------------\n")
