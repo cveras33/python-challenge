@@ -5,10 +5,10 @@ print("\nElection Results")
 print("--------------------------------------------------")
 
 # Relative path for input file
-csvPath = os.path.join('..', 'Resources', 'election_data.csv')
+csvPath = os.path.join('Resources', 'election_data.csv')
 
 # Relative path for output file 
-output_path = os.path.join('..', 'analysis', 'py_poll_output.txt')
+output_path = os.path.join('analysis', 'py_poll_output.txt')
 
 # Variable for total votes 
 total_votes = 0 
