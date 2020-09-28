@@ -57,10 +57,10 @@ us_state_abbrev = {
 }
 
 # Relative path for input file
-csvPath = os.path.join('..', 'Resources', 'employee_data.csv')
+csvPath = os.path.join('Resources', 'employee_data.csv')
 
 # Relative path for output file
-output_path = os.path.join('..', 'analysis', 'py_poll_output.txt')
+output_path = os.path.join('analysis', 'py_poll_output.txt')
 
 # List to hold all first names from the dataset after splitting
 first_name = []
