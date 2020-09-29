@@ -32,7 +32,7 @@ with open(csvPath) as csvFileStream:
     csv_header = next(csv_reader)
 
     for row in csv_reader:
-        # Splitting first and last name, and add them to a list 
+        # Splitting first and last name
         first = row[1].split()[0]
         last = row[1].split()[1]
 
@@ -56,3 +56,5 @@ with open(output_path, 'w') as csv_file:
     csv_writer.writerow(["First Name", "Last Name", "DOB", "SSN", "State"])
     # Writing the new data to the csv file 
     csv_writer.writerows(zip(first_name, last_name, date_formatted, hidden_ssn, state))
+
+    csv_file.close()

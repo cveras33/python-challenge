@@ -35,6 +35,7 @@ greatest_increase = 0
 greatest_decrease = 0
 
 with open(csvPath) as csvFileStream:
+    
     # CSV reader specifies delimiter and variable that holds contents
     csv_reader = csv.reader(csvFileStream, delimiter =',')
     
@@ -77,14 +78,14 @@ greatest_decrease = min(change)
 # Getting the month with the greatest decrease in profits
 greatest_decrease_month = change.index(min(change)) + 1
 
-# Printing outputs 
+# Printing outputs to terminal
 print(f"Total Months: {num_months}")
 print(f"Total: ${net_total}")
 print(f"Average  Change: (${avg_change})")
 print(f"Greatest Increase in Profits: {months[greatest_increase_month]} (${greatest_increase})")
 print(f"Greatest Decrease in Profits: {months[greatest_decrease_month]} (${greatest_decrease})\n")
 
-# Writing to the text file 
+# Writing output to the text file 
 with open(output_path, 'w') as txt_file:
 
     txt_file.write("Financial Analysis\n")
@@ -95,4 +96,5 @@ with open(output_path, 'w') as txt_file:
     txt_file.write(f"Greatest Increase in Profits: {months[greatest_increase_month]} (${greatest_increase})\n")
     txt_file.write(f"Greatest Decrease in Profits: {months[greatest_decrease_month]} (${greatest_decrease})")
 
-    #Is this where you would close? 
+    # Closing text file after writing output is complete 
+    txt_file.close()
